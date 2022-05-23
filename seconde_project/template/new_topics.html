@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+  {%block title%}new topic{%endblock%}
+      {%block breadcrumb%}
+        <li class="breadcrumb-item  "><a href="{% url 'index'%}">Board</a></li>
+           <li class="breadcrumb-item "><a href="{% url 'board_topic' board.pk%} ">{{board.name}}</li></a>
+               <li class="breadcrumb-item active ">new topic</li>
+      {%endblock%}
+  {%block content%}
+<form method="post" novalidate> {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-success">Post</button>
+</form>
+{%endblock%}
+</div>
+</body>
+</html>
